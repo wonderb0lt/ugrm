@@ -95,7 +95,7 @@ class UsergroupFactory
                 foreach ($xml->schedule->meeting as $m) {
                     $meeting = new Meeting();
                     $meeting->usergroup = $usergroup;
-                    $meeting->time = new Carbon(strval($m->time), "Europe/Berlin");
+                    $meeting->time = new Carbon(strval($m->time));
                     $meeting->name = strval($m->name);
                     static::setProps(array('description', 'url'), $m, $meeting, true);
                     $meeting->description = static::filterXmlContentForMarkown($meeting->description);
